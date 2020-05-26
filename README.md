@@ -8,6 +8,13 @@
 
 MapStruct은 이런 부분을 자동으로 만들어준다.
 
+### How to use
+
+- Mappers.getMapper(YourClass.class)
+
+- Spring, CDI
+
+
 
 ### Getting Started 
 
