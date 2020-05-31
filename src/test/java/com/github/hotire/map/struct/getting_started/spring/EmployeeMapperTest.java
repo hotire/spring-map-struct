@@ -25,13 +25,31 @@ class EmployeeMapperTest {
     }
 
     @Test
-    void givenEmpDTONestedMappingToEmp_whenMaps_thenCorrect() {
+    void v1ToEmployeeWhenChild() {
+        // given
         final V1Employee v1Employee = new V1Employee();
         v1Employee.setDivision(new V1Division(1, "hotire"));
 
         // when
         final Employee result = mapper.v1ToEmployee(v1Employee);
 
-        System.out.println(result);
+        // then
+        assertThat(result.getDivision().getId()).isEqualTo(v1Employee.getDivision().getId());
+        assertThat(result.getDivision().getName()).isEqualTo(v1Employee.getDivision().getName());
+    }
+
+    @Test
+    void toEntity() {
+        // given
+        final V2Employee v2Employee = new V2Employee();
+        v2Employee.setId(1);
+        v2Employee.setName("hotire");
+
+        // when
+        final Employee result = mapper.toEntity(v2Employee);
+
+        // then
+        assertThat(result.getId()).isEqualTo(v2Employee.getId());
+        assertThat(result.getName()).isEqualTo(v2Employee.getName());
     }
 }
