@@ -6,40 +6,38 @@ import com.github.hotire.map.struct.getting_started.SimpleSourceDestinationMappe
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class SimpleSourceDestinationMapperTest {
     private final SimpleSourceDestinationMapper mapper
             = Mappers.getMapper(SimpleSourceDestinationMapper.class);
 
     @Test
-    void givenSourceToDestination_whenMaps_thenCorrect() {
+    void sourceToDestination() {
         // given
         final SimpleSource simpleSource = new SimpleSource();
         simpleSource.setName("SourceName");
         simpleSource.setDescription("SourceDescription");
 
         // when
-        final SimpleDestination destination = mapper.sourceToDestination(simpleSource);
+        final SimpleDestination result = mapper.sourceToDestination(simpleSource);
 
         // then
-        assertEquals(simpleSource.getName(), destination.getName());
-        assertEquals(simpleSource.getDescription(),
-                destination.getDescription());
+        assertThat(result.getName()).isEqualTo(simpleSource.getName());
+        assertThat(result.getDescription()).isEqualTo(simpleSource.getDescription());
     }
     @Test
-    void givenDestinationToSource_whenMaps_thenCorrect() {
+    void destinationToSource() {
         // given
         final SimpleDestination destination = new SimpleDestination();
         destination.setName("DestinationName");
         destination.setDescription("DestinationDescription");
 
         // when
-        final SimpleSource source = mapper.destinationToSource(destination);
+        final SimpleSource result = mapper.destinationToSource(destination);
 
         // then
-        assertEquals(destination.getName(), source.getName());
-        assertEquals(destination.getDescription(),
-                source.getDescription());
+        assertThat(result.getName()).isEqualTo(destination.getName());
+        assertThat(result.getDescription()).isEqualTo(destination.getDescription());
     }
 }
