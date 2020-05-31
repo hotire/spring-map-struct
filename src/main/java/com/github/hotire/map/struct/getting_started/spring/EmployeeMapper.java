@@ -5,7 +5,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
 @Mapper(componentModel = "spring")
-public interface EmployeeMapper {
+public interface EmployeeMapper extends EntityMapper<Employee, V2Employee> {
     @Mappings({
             @Mapping(target = "employeeId", source = "entity.id"),
             @Mapping(target = "employeeName", source = "entity.name")
