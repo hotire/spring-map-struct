@@ -17,4 +17,8 @@ public interface EmployeeMapper {
             @Mapping(target = "name", source = "v1.employeeName")
     })
     Employee v1ToEmployee(final V1Employee v1);
+
+    V1Division divisionToV1(final Division entity);
+
+    Division v1ToDivision(final V1Division v1);
 }

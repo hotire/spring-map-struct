@@ -6,4 +6,5 @@ import lombok.Data;
 public class Employee {
     private Integer id;
     private String name;
+    private Division division;
 }

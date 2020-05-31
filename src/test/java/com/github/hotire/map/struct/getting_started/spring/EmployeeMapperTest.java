@@ -23,4 +23,15 @@ class EmployeeMapperTest {
         assertThat(result.getId()).isEqualTo(v1Employee.getEmployeeId());
         assertThat(result.getName()).isEqualTo(v1Employee.getEmployeeName());
     }
+
+    @Test
+    void givenEmpDTONestedMappingToEmp_whenMaps_thenCorrect() {
+        final V1Employee v1Employee = new V1Employee();
+        v1Employee.setDivision(new V1Division(1, "hotire"));
+
+        // when
+        final Employee result = mapper.v1ToEmployee(v1Employee);
+
+        System.out.println(result);
+    }
 }
