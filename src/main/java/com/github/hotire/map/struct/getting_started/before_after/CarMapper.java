@@ -5,6 +5,8 @@ import org.mapstruct.BeforeMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 
+import java.util.Optional;
+
 @Mapper
 public abstract class CarMapper {
 
@@ -15,7 +17,7 @@ public abstract class CarMapper {
 
     @AfterMapping
     protected void toUpperCase(@MappingTarget V1Car v1Car) {
-        v1Car.setName(v1Car.getName().toUpperCase());
+        v1Car.setName(Optional.ofNullable(v1Car.getName()).map(String::toUpperCase).orElse(null));
     }
 
     public abstract V1Car toV1(Car car);
