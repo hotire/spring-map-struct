@@ -7,9 +7,9 @@ import java.util.Collection;
 import java.util.List;
 
 @Mapper(componentModel = "spring")
-public abstract class TransactionMapper {
+public interface TransactionMapper {
 
-    public V1Transaction toV1(final Transaction transaction) {
+    default V1Transaction toV1(final Transaction transaction) {
         V1Transaction v1Transaction = new V1Transaction();
         v1Transaction.setUuid(transaction.getUuid());
         v1Transaction.setTotalInCents(transaction.getTotal()
@@ -17,5 +17,5 @@ public abstract class TransactionMapper {
         return v1Transaction;
     }
 
-    public abstract List<V1Transaction> toV1(final Collection<Transaction> transactions);
+    List<V1Transaction> toV1(final Collection<Transaction> transactions);
 }
