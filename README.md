@@ -19,3 +19,8 @@ MapStruct은 이런 부분을 자동으로 만들어준다.
 ### Getting Started 
 
 https://www.baeldung.com/mapstruct
+
+
+### Transfer Object Pattern
+
+https://blog.naver.com/gngh0101/221992848918
