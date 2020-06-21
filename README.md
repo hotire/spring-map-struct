@@ -24,3 +24,8 @@ https://www.baeldung.com/mapstruct
 ### Transfer Object Pattern
 
 https://blog.naver.com/gngh0101/221992848918
+
+
+### Different Field Names, With Child Beans
+
+https://blog.naver.com/gngh0101/222000872536
